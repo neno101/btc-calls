@@ -1,0 +1,24 @@
+name: btc-calls
+on:
+  schedule:
+    - cron: "*/15 * * * *"      # every 15 minutes, 24/7 (GitHub uses UTC; this doesn't matter for an every-15 schedule)
+  workflow_dispatch: {}          # lets you press "Run workflow" by hand
+permissions:
+  contents: write
+concurrency:
+  group: btc-calls
+  cancel-in-progress: false
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Score the last call and make the next one
+        run: python3 btc_calls.py
+      - name: Save the log
+        run: |
+          git config user.name "btc-calls"
+          git config user.email "btc-calls@users.noreply.github.com"
+          git add predictions.csv data
+          git diff --cached --quiet || (git commit -m "calls $(date -u +%FT%TZ)" && git pull --rebase -q && git push)
