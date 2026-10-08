@@ -1,10 +1,10 @@
 # btc-calls
 
-Every 15 minutes, 24/7: score the last BTC call, make the next one, save the log. Free.
+Every hour, 24/7: score the last BTC call, make the next one, save the log. Free.
 It is a diary of a simple rule's accuracy. It places no trades and gives no advice.
 
 ## What it does
-- Calls "BTC higher or lower than the current price in 15 minutes", with a reason and a probability.
+- Calls "BTC higher or lower than the current price in 1 hour", with a reason and a probability.
 - The rule never changes (rule v1): lean with the last hour's drift. Confidence = 50% + 5% x
   (drift / a typical swing), capped at 55%. It is a formula, so no AI and no cost.
 - Scores each call on the close of Coinbase's BTC-USD one-minute candle at its deadline.
@@ -15,7 +15,7 @@ It is a diary of a simple rule's accuracy. It places no trades and gives no advi
 - **Hit rate and its 95% range.** Until the range excludes 50%, you can't tell it from a coin flip.
 - **Brier score.** A coin flip scores 0.250. Lower is better.
 - **"Always guessing HIGHER" hit rate.** If BTC just drifts up, a lazy guess looks smart. The rule has to beat this too.
-- The verdict stays "TOO EARLY" until 100 calls are scored (about a day).
+- The verdict stays "TOO EARLY" until 100 calls are scored (about four days at one call an hour).
 
 ## Setup (the repo must be PUBLIC; it holds no keys)
 1. Create the repo `neno101/btc-calls` as public and push this folder. Public repos get unlimited

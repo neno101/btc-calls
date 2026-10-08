@@ -1,7 +1,7 @@
 name: btc-calls
 on:
   schedule:
-    - cron: "*/15 * * * *"      # every 15 minutes, 24/7 (GitHub uses UTC; this doesn't matter for an every-15 schedule)
+    - cron: "5 * * * *"         # hourly, at 5 past (GitHub is busiest on the hour; UTC doesn't matter for an hourly schedule)
   workflow_dispatch: {}          # lets you press "Run workflow" by hand
 permissions:
   contents: write
@@ -16,6 +16,8 @@ jobs:
       - uses: actions/checkout@v4
       - name: Score the last call and make the next one
         env:
+          HORIZON_MIN: "60"
+          MIN_GAP_MIN: "30"
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python3 btc_calls.py
