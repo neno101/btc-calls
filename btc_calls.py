@@ -158,13 +158,30 @@ def report(rows, now):
                    "always_higher_hit_rate_pct": round(ups / n * 100, 1) if n else None,
                    "pending": pending, "updated": iso(now)}, f, indent=2)
 
+def notify(row, rows):
+    """Send the new call to Telegram. Skipped if no bot is set up; never fails the run."""
+    token, chat = os.getenv("TELEGRAM_BOT_TOKEN"), os.getenv("TELEGRAM_CHAT_ID")
+    if not (token and chat): return
+    prev = [r for r in rows if r.get("correct") in ("YES", "NO")]
+    last = f"\nLast scored call: #{prev[-1]['id']} {prev[-1]['call']} -> {prev[-1]['outcome']} ({'right' if prev[-1]['correct'] == 'YES' else 'wrong'})" if prev else ""
+    arrow = "UP" if row["call"] == "HIGHER" else "DOWN"
+    text = (f"BTC call #{row['id']}: {arrow}\n"
+            f"Higher than ${float(row['threshold']):,.2f} at {row['resolve_time_CT']} CT? "
+            f"{row['call']} ({float(row['prob_higher']):.0%} chance higher).{last}")
+    try:
+        data = urllib.parse.urlencode({"chat_id": chat, "text": text}).encode()
+        urllib.request.urlopen(urllib.request.Request(f"https://api.telegram.org/bot{token}/sendMessage", data=data), timeout=15).read()
+    except Exception as e:
+        print("telegram ping failed (run continues):", type(e).__name__, file=sys.stderr)
+
 def main(now=None):
     now = int(now or time.time())
     rows = load()
     candles = fetch_candles()
     score(rows, {int(c[0]): float(c[4]) for c in candles}, now)
-    make_call(rows, candles, now)
+    row = make_call(rows, candles, now)
     save(rows); report(rows, now)
+    if row: notify(row, rows)
 
 if __name__ == "__main__":
     try: main()

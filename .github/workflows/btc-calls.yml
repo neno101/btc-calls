@@ -15,6 +15,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Score the last call and make the next one
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python3 btc_calls.py
       - name: Save the log
         run: |
