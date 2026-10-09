@@ -1,16 +1,16 @@
 # BTC calls: rule v1, 60-minute horizon
 
-**Verdict:** TOO EARLY (6 of 100 calls scored)
+**Verdict:** TOO EARLY (7 of 100 calls scored)
 
-**Hit rate:** 50.0% (3 of 6). 95% range: 19% to 81%.
-**Average Brier score:** 0.256 (a coin flip is 0.250; lower is better).
-**BTC rose in 67% of these windows**, so always guessing HIGHER would have hit 67%.
+**Hit rate:** 57.1% (4 of 7). 95% range: 25% to 84%.
+**Average Brier score:** 0.250 (a coin flip is 0.250; lower is better).
+**BTC rose in 57% of these windows**, so always guessing HIGHER would have hit 57%.
 **Pending calls:** 1
 
 Last 5 calls:
 
-- #5 2026-10-08 11:17 CT: LOWER (45% higher) -> LOWER YES
 - #6 2026-10-08 16:56 CT: LOWER (48% higher) -> HIGHER NO
 - #7 2026-10-08 20:54 CT: HIGHER (51% higher) -> HIGHER YES
 - #8 2026-10-09 03:47 CT: HIGHER (51% higher) -> HIGHER YES
-- #9 2026-10-09 11:01 CT: LOWER (46% higher) -> pending
+- #9 2026-10-09 11:01 CT: LOWER (46% higher) -> LOWER YES
+- #10 2026-10-09 15:46 CT: HIGHER (51% higher) -> pending
