@@ -2,16 +2,16 @@
   "project": "btc-calls",
   "rule": "v1",
   "horizon_min": 60,
-  "verdict": "TOO EARLY (83 of 100 calls scored)",
-  "scored": 83,
-  "hits": 38,
-  "hit_rate_pct": 45.8,
+  "verdict": "TOO EARLY (84 of 100 calls scored)",
+  "scored": 84,
+  "hits": 39,
+  "hit_rate_pct": 46.4,
   "ci95_pct": [
-    35,
-    56
+    36,
+    57
   ],
   "avg_brier": 0.253,
-  "always_higher_hit_rate_pct": 53.0,
+  "always_higher_hit_rate_pct": 53.6,
   "pending": 1,
-  "updated": "2026-10-24T18:00:00Z"
+  "updated": "2026-10-24T20:32:39Z"
 }
