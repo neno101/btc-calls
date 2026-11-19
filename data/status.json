@@ -3,15 +3,15 @@
   "rule": "v1",
   "horizon_min": 60,
   "verdict": "NOT DISTINGUISHABLE FROM A COIN FLIP (95% range includes 50%)",
-  "scored": 182,
-  "hits": 81,
-  "hit_rate_pct": 44.5,
+  "scored": 183,
+  "hits": 82,
+  "hit_rate_pct": 44.8,
   "ci95_pct": [
-    37,
+    38,
     52
   ],
-  "avg_brier": 0.255,
-  "always_higher_hit_rate_pct": 54.4,
+  "avg_brier": 0.254,
+  "always_higher_hit_rate_pct": 54.1,
   "pending": 1,
-  "updated": "2026-11-18T21:16:06Z"
+  "updated": "2026-11-19T03:03:44Z"
 }
