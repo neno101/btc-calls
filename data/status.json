@@ -2,16 +2,16 @@
   "project": "btc-calls",
   "rule": "v1",
   "horizon_min": 60,
-  "verdict": "NOT DISTINGUISHABLE FROM A COIN FLIP (95% range includes 50%)",
-  "scored": 199,
+  "verdict": "WORSE THAN A COIN FLIP (95% range is below 50%)",
+  "scored": 200,
   "hits": 86,
-  "hit_rate_pct": 43.2,
+  "hit_rate_pct": 43.0,
   "ci95_pct": [
-    37,
+    36,
     50
   ],
   "avg_brier": 0.255,
-  "always_higher_hit_rate_pct": 53.3,
+  "always_higher_hit_rate_pct": 53.0,
   "pending": 1,
-  "updated": "2026-11-24T05:49:41Z"
+  "updated": "2026-11-24T17:22:58Z"
 }
