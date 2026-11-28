@@ -3,15 +3,15 @@
   "rule": "v1",
   "horizon_min": 60,
   "verdict": "WORSE THAN A COIN FLIP (95% range is below 50%)",
-  "scored": 208,
+  "scored": 209,
   "hits": 88,
-  "hit_rate_pct": 42.3,
+  "hit_rate_pct": 42.1,
   "ci95_pct": [
     36,
     49
   ],
   "avg_brier": 0.256,
-  "always_higher_hit_rate_pct": 53.8,
+  "always_higher_hit_rate_pct": 54.1,
   "pending": 1,
-  "updated": "2026-11-27T17:59:53Z"
+  "updated": "2026-11-28T01:17:36Z"
 }
